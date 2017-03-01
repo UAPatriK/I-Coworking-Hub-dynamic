@@ -342,29 +342,24 @@ I coworking hub deals with to achieve the goal.</p>
 
   
 <?php
-$term = get_post_meta($post->ID, 'course_programm_cpt', 1);
-
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$term1 = get_post_meta($post->ID, 'course_programm_cpt', 1);
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
            $args = array(
       'post_type' => 'course_programm',
       'paged'=>  $paged,
       'order' => ASC,
        'posts_per_page' => -1,
-      'tax_query' => array (
-          array(
-            'taxonomy' => 'course_programm_category',
+      'tax_query' => array(
+              'taxonomy' => 'course_programm_category',
             'field' => 'slug',
-            'terms' => $term,
-               ),
-                           ),
+            'terms' => $term1,
+                   ),
                        );
 
-
-
-    $furniture_category1 = new WP_Query( $args );
-    if( $furniture_category1->have_posts() ) {
-      while( $furniture_category1->have_posts() ) {
-        $furniture_category1->the_post();
+    $course_programm_category = new WP_Query( $args );
+    if( $course_programm_category->have_posts() ) {
+      while( $course_programm_category->have_posts() ) {
+        $course_programm_category->the_post();
         ?>
         
     <div class="panel panel-default">
@@ -386,12 +381,12 @@ $term = get_post_meta($post->ID, 'course_programm_cpt', 1);
       }
     }
 
-
-
     else {
-      echo __('Нажаль, у даний момент проекти відсутні.',sonce_0_01);
+     
     }
   ?>
+  <?php wp_reset_postdata(); ?>
+
 </div>
 </div>
 
@@ -406,12 +401,6 @@ $term = get_post_meta($post->ID, 'course_programm_cpt', 1);
 
           </div>
 
-  <!--         <div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </div> -->
-
         </div>
 
       </div>
@@ -424,14 +413,14 @@ $term = get_post_meta($post->ID, 'course_programm_cpt', 1);
         <div class="cover-container">
         
 
-          <div class="inner  " style="margin-top: 100px; ">
+          <div class="inner" style="margin-top: 100px; ">
      
-        <div class="col-lg-4 text_block"  >
+        <div class="col-lg-4 text_block">
 
 <h1>Стоимость.<br>
 Pricing:<br>
-<span style="color:#F62A49">3000</span> грн в месяц <br>
-или <span style="color:#F62A49">5000</span> грн<br>
+<span style="color:#F62A49"> <?php echo get_post_meta($post->ID, 'course_test', 1); ?></span> грн в месяц <br>
+или <span style="color:#F62A49"><?php echo get_post_meta($post->ID, 'course_full_price', 1); ?></span> грн<br>
 за весь курс
 </h1> 
 
@@ -447,23 +436,7 @@ I coworking hub deals with to achieve the goal.</p>
                <div class="col-lg-10 col-lg-offset-1 feedback_block">
 
     <div class="col-lg-12 tutors_block"  >
-
-<!-- <h1>Основной состав тьюторов бизнес курсов:</h1> -->
-<ul>
-<li>1. Для вас мы подготовили презентации и сняли 16 больших видео лекций по часу и более, которые
-включают в себя и базовый материал по проектному менеджменту, и кейсы по People Management (vs
-Human Resource Management).</li>
-<li>2. Также команда Открытого Университета рекомендует самостоятельно трудиться по статьям и книгам,
-список которых прилагаем к лекциям и презентациям.</li>
-<li>3. Сопровождение куратора Школы Бизнеса— ежедневно.</li>
-<li>4. Тьюторы во внутреннем чате отвечают на вопросы по материалу*</li>
-<li>5. Вы защищаете квалификацию по подробному брифу и кейсам, получаете сертификат с подписями
-экспертного жюри.</li>
-<li>6. Выпускников, которые защитили квалификацию, рекомендуем на стажировки и представляем
-директорам по персоналу и собственникам международных компаний.</li>
-<li></li>
-<li>* До 700 часов за 2 месяца</li>
-</ul>
+<?php echo get_post_meta($post->ID, 'course_price_block_text_1', 1); ?>
           </div>
 
            <div class="col-lg-12 tutors_block"  style="margin-top: 60px;">

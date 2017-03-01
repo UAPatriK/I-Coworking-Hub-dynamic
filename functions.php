@@ -823,6 +823,7 @@ $settings = array('textarea_name'=>'extra[course_invited_tutors]','textarea_rows
 </tr>
 
 
+
 <tr><label>
 	<td>
 	Cсылка на категорию программы курса:
@@ -847,44 +848,6 @@ $settings = array('textarea_name'=>'extra[course_invited_tutors]','textarea_rows
 	</td>
 	<td>
 		 <input type="text" name="extra[course_full_price]" value="<?php echo get_post_meta($post->ID, 'course_full_price', 1); ?>" style="width:100%" />
-	</td></label>
-</tr>
-
-
-<tr><label>
-	<td>
-Заголовок описания стоимости (блок 1):
-	</td>
-	<td>
-		 <input type="text" name="extra[course_price_block_sign_1]" value="<?php echo get_post_meta($post->ID, 'course_price_block_sign_1', 1); ?>" style="width:100%" />
-	</td></label>
-</tr>
-
-<tr><label>
-	<td>
-Описание стоимости (блок 1):
-	</td>
-	<td>
-		 <input type="text" name="extra[course_price_block_text_1]" value="<?php echo get_post_meta($post->ID, 'course_price_block_text_1', 1); ?>" style="width:100%" />
-	</td></label>
-</tr>
-
-
-<tr><label>
-	<td>
-Заголовок описания стоимости (блок 2):
-	</td>
-	<td>
-		 <input type="text" name="extra[course_price_block_sign_2]" value="<?php echo get_post_meta($post->ID, 'course_price_block_sign_2', 1); ?>" style="width:100%" />
-	</td></label>
-</tr>
-
-<tr><label>
-	<td>
-Описание стоимости (блок 2):
-	</td>
-	<td>
-		 <input type="text" name="extra[course_price_block_text_2]" value="<?php echo get_post_meta($post->ID, 'course_price_block_text_2', 1); ?>" style="width:100%" />
 	</td></label>
 </tr>
 
