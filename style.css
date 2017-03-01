@@ -1,34 +1,8 @@
-
-/*
-Theme name: I Coworking Hub
-Theme URI: https://icoworkinghubcom;
-Description: 
-Version: v3
-Author: Vladyslav Vlasov
-Author URI: https://www.facebook.com/patrik.project
-Tags: 
- */
-
 /*
  * Globals
  */
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
 
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
 
 
 /*
@@ -53,7 +27,7 @@ body {
 }
 body {
   color: #252829;
-  text-align: center;
+
   /* text-shadow: 0 1px 3px rgba(0,0,0,.5); */
 }
 
@@ -76,7 +50,7 @@ body {
 
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+  padding: 0px;
 }
 
 
@@ -338,6 +312,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 } 
 
 
+
+
 .footer_block ul{
 padding-left: 0px;
 list-style-type: none;
@@ -402,6 +378,9 @@ text-decoration: underline;
 .item_border {
   border-bottom: 10px solid #61686B;
 }
+.course_item {
+  margin-bottom: 200px;
+}
 
 .course_item h1 {
   font-size: 36px;
@@ -415,6 +394,14 @@ text-decoration: underline;
   font-size: 30px;
   text-align: left;
   color:  #000;
+    font-family:  Futura Futurisc Regular;
+}
+
+.course_item p {
+    font-size: 18px;
+  text-align: left;
+  color:  #a8a8a8;
+  margin-top: 100px;
     font-family:  Futura Futurisc Regular;
 }
 
@@ -435,7 +422,7 @@ a.feedback_link{
   color: #FF2646;
 margin-bottom: 24px;
 text-decoration: underline;
-text-align: left !important;
+
 margin-left: 0px;
 } 
 
@@ -443,7 +430,7 @@ a.feedback_link:hover{
   text-decoration: none;
 } 
 
-.feedback_block p {
+.feedback_block p { 
   margin-top: 40px;
   font-family: Garamond;
   font-size: 24px;
@@ -462,4 +449,184 @@ a.feedback_link:hover{
     font-size: 24px;
     text-align: left;
     font-family:  Futura Futurisc Regular;
+}
+
+.course_text {
+   margin-top: 50px;
+  color: #747b7e;
+  font-family: 'Garamond', serif;
+  font-size: 24px;
+  text-align: left;
+}
+
+
+.course_info h1{
+   font-size: 20px;
+    text-align: left;
+    font-family:  Futura Futurisc Regular;
+}
+.course_info ul {
+  padding-left: 0px;
+}
+.course_info li, .course_info p{
+  list-style-type:  none;
+   font-size: 20px;
+    text-align: left;
+    font-family:  Garamond;
+    color: #747b7e
+}
+
+
+.btn-red {
+  margin-top: 200px;
+     font-size: 16px;
+    width: 100%;
+    font-family:  Futura Futurisc Regular;
+  color: #fff;
+  background-color:  #FA667C;
+  border-color: #FA667C;
+  border-radius: 0px;
+}
+.btn-red:focus,
+.btn-red.focus {
+  color: #FA667C;
+  background-color: #fff;
+  border-color: #FA667C;
+}
+.btn-red:hover {
+  color:#FA667C;
+  background-color: #fff;
+  border-color: #FA667C;
+}
+.btn-red:active,
+.btn-red.active,
+.open > .dropdown-toggle.btn-red {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-red:active:hover,
+.btn-red.active:hover,
+.open > .dropdown-toggle.btn-red:hover,
+.btn-red:active:focus,
+.btn-red.active:focus,
+.open > .dropdown-toggle.btn-red:focus,
+.btn-red:active.focus,
+.btn-red.active.focus,
+.open > .dropdown-toggle.btn-red.focus {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+.btn-red:active,
+.btn-red.active,
+.open > .dropdown-toggle.btn-red {
+  background-image: none;
+}
+.btn-red.disabled:hover,
+.btn-red[disabled]:hover,
+fieldset[disabled] .btn-red:hover,
+.btn-red.disabled:focus,
+.btn-red[disabled]:focus,
+fieldset[disabled] .btn-red:focus,
+.btn-red.disabled.focus,
+.btn-red[disabled].focus,
+fieldset[disabled] .btn-red.focus {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-red .badge {
+  color: #fff;
+  background-color: #333;
+}
+
+
+
+.btn-grey {
+
+     font-size: 16px;
+    width: 100%;
+    font-family:  Futura Futurisc Regular;
+  color: #fff;
+  background-color:  #61686B;
+  border-color: #61686B;
+  border-radius: 0px;
+}
+.btn-grey:focus,
+.btn-grey.focus {
+  color: #61686B;
+  background-color: #fff;
+  border-color: #61686B;
+}
+.btn-grey:hover {
+  color:#61686B;
+  background-color: #fff;
+  border-color: #61686B;
+}
+
+
+.tutors_block h1{
+     font-size: 20px;
+
+    font-family:  Futura Futurisc Regular;
+  color: #313536;
+}
+
+.tutors_block li{
+     font-size: 20px;
+
+    font-family:  Futura Futurisc Regular;
+  color: #313536;
+}
+
+.tutors_block ul, .panel-body ul {
+  padding-left: 0px;
+}
+.tutors_block li, .panel-body li{
+  list-style-type:  none;
+   font-size: 20px;
+    text-align: left;
+    font-family:  Garamond;
+    color: #747b7e
+}
+
+
+.panel {
+  box-shadow: 0 0 0 0;
+
+}
+
+.panel-default {
+  border-color: #fff;
+
+padding-bottom: 10px;
+}
+.panel-default > .panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #fff;
+     padding: 0;
+
+}
+
+.panel-heading a {
+     font-size: 20px;
+
+    font-family:  Futura Futurisc Regular;
+  color: #313536;
+}
+.accordion-toggle {
+  padding-right: 35px;
+}
+
+.panel-heading a:hover {
+  text-decoration: none;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #fff;
+  padding: 15px 0px 0px 0px ;
+}
+
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #fff;
 }

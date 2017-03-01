@@ -684,6 +684,20 @@ function extra_fields_box_func_course( $post ){
 
 <tr><label>
 	<td>
+	Заголовок курса:
+	</td>
+	<td>
+<?php 
+$content = get_post_meta($post->ID, 'course_sign', 1);
+$settings = array('textarea_name'=>'extra[course_sign]','textarea_rows'=>10, 'wpautop'=>true, 'tinymce'=>true);
+ wp_editor( $content, 'course_sign', $settings);?> 
+	</td></label>
+</tr>
+
+
+
+<tr><label>
+	<td>
 	Подзаголовок курса:
 	</td>
 	<td>
@@ -818,6 +832,63 @@ $settings = array('textarea_name'=>'extra[course_invited_tutors]','textarea_rows
 	</td></label>
 </tr>
 
+<tr><label>
+	<td>
+	Месячная стоимость курса:
+	</td>
+	<td>
+		 <input type="text" name="extra[course_part_price]" value="<?php echo get_post_meta($post->ID, 'course_part_price', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+<tr><label>
+	<td>
+	Единоразовая стоимость курса:
+	</td>
+	<td>
+		 <input type="text" name="extra[course_full_price]" value="<?php echo get_post_meta($post->ID, 'course_full_price', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+
+<tr><label>
+	<td>
+Заголовок описания стоимости (блок 1):
+	</td>
+	<td>
+		 <input type="text" name="extra[course_price_block_sign_1]" value="<?php echo get_post_meta($post->ID, 'course_price_block_sign_1', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+<tr><label>
+	<td>
+Описание стоимости (блок 1):
+	</td>
+	<td>
+		 <input type="text" name="extra[course_price_block_text_1]" value="<?php echo get_post_meta($post->ID, 'course_price_block_text_1', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+
+<tr><label>
+	<td>
+Заголовок описания стоимости (блок 2):
+	</td>
+	<td>
+		 <input type="text" name="extra[course_price_block_sign_2]" value="<?php echo get_post_meta($post->ID, 'course_price_block_sign_2', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+<tr><label>
+	<td>
+Описание стоимости (блок 2):
+	</td>
+	<td>
+		 <input type="text" name="extra[course_price_block_text_2]" value="<?php echo get_post_meta($post->ID, 'course_price_block_text_2', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+
 	</table>
 	<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
 <?php
@@ -851,6 +922,164 @@ function my_extra_fields_update_course( $post_id ){
 
 
 
+
+
+// Code for Furniture
+
+function my_custom_post_course_programm() {
+  $labels = array(
+    'name'               => _x( 'Программа курсов', 'post type general name' ),
+    'singular_name'      => _x( 'Программа курса', 'post type singular name' ),
+    'add_new'            => _x( 'Добавить новую тему лекции', 'book' ),
+    'add_new_item'       => __( 'Новая тема лекции' ),
+    'edit_item'          => __( 'Редактировать тему лекции' ),
+    'new_item'           => __( 'Новая тема лекции' ),
+    'all_items'          => __( 'Все темы лекции' ),
+    'view_item'          => __( 'Просмотреть темы лекции' ),
+    'search_items'       => __( 'Искать темы лекции' ),
+    'not_found'          => __( 'Темы лекции не найдены' ),
+    'not_found_in_trash' => __( 'В корзине тема лекции не найдена' ), 
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Программы курсов'
+  );
+  $args = array(
+    'labels'        => $labels,
+    'description'   => 'В данном типе записи хранятся темый лекций для курсов',
+    'public'        => true,
+    'menu_position' => 5,
+    'supports'      => array( 'title', 'thumbnail'),
+    'has_archive'   => true,
+     'menu_icon' => 'dashicons-hammer',
+  );
+  register_post_type( 'course_programm', $args ); 
+}
+add_action( 'init', 'my_custom_post_course_programm' );
+
+function my_updated_messages_course_programm( $messages ) {
+  global $post, $post_ID;
+  $messages['course_programm'] = array(
+    0 => '', 
+    1 => sprintf( __('Тема лекции обновлена. <a href="%s">Просмотреть тему лекции</a>'), esc_url( get_permalink($post_ID) ) ),
+    2 => __('Поле добавлено.'),
+    3 => __('Поле удалено.'),
+    4 => __('Тема лекции обновлена.'),
+    5 => isset($_GET['revision']) ? sprintf( __('Тема лекции восстановлена от %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+    6 => sprintf( __('Тема лекции опубликована. <a href="%s">View issue</a>'), esc_url( get_permalink($post_ID) ) ),
+    7 => __('Тема лекции сохранена.'),
+    8 => sprintf( __('Предпросмотр темы лекции <a target="_blank" href="%s">Preview issue</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+    9 => sprintf( __('Публикация темы лекции запланирована: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Предпросмотр темы лекции</a>'), date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+    10 => sprintf( __('Черновик темы лекции сохранен. <a target="_blank" href="%s">Предпросмотр темы лекции</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+  );
+  return $messages;
+}
+add_filter( 'post_updated_messages', 'my_updated_messages_course_programm' );
+
+
+
+
+function my_taxonomies_course_programm() {
+  $labels = array(
+    'name'              => _x( 'Курсы', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Курс', 'taxonomy singular name' ),
+    'search_items'      => __( 'Искать курс' ),
+    'all_items'         => __( 'Все курсы' ),
+    'parent_item'       => __( 'Родительская категория курса' ),
+    'parent_item_colon' => __( 'Родительская категория курса:' ),
+    'edit_item'         => __( 'Редактировать категорию курса' ), 
+    'update_item'       => __( 'Обновить категорию курса' ),
+    'add_new_item'      => __( 'Добавить новую категорию курса' ),
+    'new_item_name'     => __( 'Новая категория курса' ),
+    'menu_name'         => __( 'Категории курса' ),
+  );
+  $args = array(
+        'hierarchical'      => true, // Set this to 'false' for non-hierarchical taxonomy (like tags)
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+      
+        'rewrite' => true
+
+       
+    );
+  register_taxonomy( 'course_programm_category', array('course_programm'), $args );
+}
+add_action( 'init', 'my_taxonomies_course_programm', 0 );
+
+
+
+// подключаем функцию активации мета блока (my_extra_fields)
+add_action('add_meta_boxes', 'my_extra_fields_course_programm', 1);
+
+function my_extra_fields_course_programm() {
+  add_meta_box( 'extra_fields', 'Дополнительные поля', 'extra_fields_box_func_course_programm', 'course_programm', 'normal', 'high'  );
+}
+
+// код блока
+function extra_fields_box_func_course_programm( $post ){
+?>
+
+<table width="100%" border="1" cellspacing="0" bordercolor="ececec" cellpadding="7">
+
+<tr><label>
+  <td>
+  Наименование темы:
+  </td>
+  <td>
+    <input type="text" name="extra[course_programm_issue]" value="<?php echo get_post_meta($post->ID, 'course_programm_issue', 1); ?>" style="width:50%" />
+  </td></label>
+</tr>
+<tr><label>
+  <td>
+    Содержание темы:
+  </td>
+  <td>
+   <?php 
+$content = get_post_meta($post->ID, 'course_programm_text', 1);
+$settings = array('textarea_name'=>'extra[course_programm_text]','textarea_rows'=>10, 'wpautop'=>true, 'tinymce'=>true);
+ wp_editor( $content, 'course_programm_text', $settings);?> 
+  </td></label>
+</tr>
+
+
+
+  </table>
+  <input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
+<?php
+}
+
+// включаем обновление полей при сохранении
+add_action('save_post', 'my_extra_fields_update_course_programm', 0);
+
+/* Сохраняем данные, при сохранении поста */
+function my_extra_fields_update_course_programm( $post_id ){
+  if ( !wp_verify_nonce($_POST['extra_fields_nonce'], __FILE__) ) return false; // проверка
+  if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE  ) return false; // если это автосохранение
+  if ( !current_user_can('edit_post', $post_id) ) return false; // если юзер не имеет право редактировать запись
+
+  if( !isset($_POST['extra']) ) return false; 
+
+  // Все ОК! Теперь, нужно сохранить/удалить данные
+  $_POST['extra'] = array_map('trim', $_POST['extra']);
+  foreach( $_POST['extra'] as $key=>$value ){
+    if( empty($value) ){
+      delete_post_meta($post_id, $key); // удаляем поле если значение пустое
+      continue;
+    }
+
+    update_post_meta($post_id, $key, $value); // add_post_meta() работает автоматически
+  }
+  return $post_id;
+}
+
+
+
+
+
+add_action('after_switch_theme', 'my_rewrite_flush' );
+  function my_rewrite_flush() {
+    flush_rewrite_rules();
+  }
 
 
 ?>
