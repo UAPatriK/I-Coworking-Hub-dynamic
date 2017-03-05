@@ -669,6 +669,35 @@ add_filter( 'post_updated_messages', 'my_updated_messages_course' );
 
 
 
+function my_taxonomies_schools() {
+  $labels = array(
+    'name'              => _x( 'Школы', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Школа', 'taxonomy singular name' ),
+    'search_items'      => __( 'Искать школу' ),
+    'all_items'         => __( 'Все школы' ),
+    'parent_item'       => __( 'Родительская категория школы' ),
+    'parent_item_colon' => __( 'Родительская категория школы:' ),
+    'edit_item'         => __( 'Редактировать категорию школы' ), 
+    'update_item'       => __( 'Обновить категорию школы' ),
+    'add_new_item'      => __( 'Добавить новую категорию школы' ),
+    'new_item_name'     => __( 'Новая категория школы' ),
+    'menu_name'         => __( 'Школы' ),
+  );
+  $args = array(
+        'hierarchical'      => true, // Set this to 'false' for non-hierarchical taxonomy (like tags)
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+      
+        'rewrite' => true
+
+       
+    );
+  register_taxonomy( 'school_category', array('course'), $args );
+}
+add_action( 'init', 'my_taxonomies_schools', 0 );
+
 // подключаем функцию активации мета блока (my_extra_fields)
 add_action('add_meta_boxes', 'my_extra_fields_course', 1);
 
@@ -848,6 +877,49 @@ $settings = array('textarea_name'=>'extra[course_invited_tutors]','textarea_rows
 	</td>
 	<td>
 		 <input type="text" name="extra[course_full_price]" value="<?php echo get_post_meta($post->ID, 'course_full_price', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+<tr><label>
+	<td>
+	Заголовок блока стоимости 1:
+	</td>
+	<td>
+		 <input type="text" name="extra[course_price_sign_1]" value="<?php echo get_post_meta($post->ID, 'course_price_sign_1', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+<tr><label>
+	<td>
+	Текст блока стоимости 1:
+	</td>
+	<td>
+<?php 
+$content = get_post_meta($post->ID, 'course_price_text_1', 1);
+$settings = array('textarea_name'=>'extra[course_price_text_1]','textarea_rows'=>10, 'wpautop'=>true, 'tinymce'=>true);
+ wp_editor( $content, 'course_price_text_1', $settings);?> 
+	</td></label>
+</tr>
+
+
+<tr><label>
+	<td>
+	Заголовок блока стоимости 2:
+	</td>
+	<td>
+		 <input type="text" name="extra[course_price_sign_2]" value="<?php echo get_post_meta($post->ID, 'course_price_sign_2', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+<tr><label>
+	<td>
+	Текст блока стоимости 2:
+	</td>
+	<td>
+<?php 
+$content = get_post_meta($post->ID, 'course_price_text_2', 1);
+$settings = array('textarea_name'=>'extra[course_price_text_2]','textarea_rows'=>10, 'wpautop'=>true, 'tinymce'=>true);
+ wp_editor( $content, 'course_price_text_2', $settings);?> 
 	</td></label>
 </tr>
 

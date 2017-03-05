@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
-
+  <?php if (have_posts()) : ?>
+    <?php while (have_posts()) : the_post(); ?>
+      
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
@@ -154,7 +156,8 @@ Tutor at U Open University, I
 
     
 
- 
+ <?php wp_reset_postdata(); ?>
+
 
 
 
@@ -342,21 +345,35 @@ I coworking hub deals with to achieve the goal.</p>
 
   
 <?php
-$term1 = get_post_meta($post->ID, 'course_programm_cpt', 1);
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-           $args = array(
-      'post_type' => 'course_programm',
+$term = get_post_meta($post->ID, 'course_programm_cpt', 1);
+ 
+      //      $args = array(
+      // 'post_type' => 'course_programm',
+      // 'paged'=>  $paged,
+      // 'order' => ASC,
+      //  'posts_per_page' => -1,
+      // 'tax_query' => array(
+      //         'taxonomy' => 'course_programm_category',
+      //       'field' => 'slug',
+      //       'terms' => 'program-pm-online-course',
+      //              ),
+      //                  );
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+       'post_type' => 'course_programm',
       'paged'=>  $paged,
       'order' => ASC,
        'posts_per_page' => -1,
-      'tax_query' => array(
-              'taxonomy' => 'course_programm_category',
-            'field' => 'slug',
-            'terms' => $term1,
-                   ),
-                       );
-
-    $course_programm_category = new WP_Query( $args );
+  'tax_query' => array(
+   
+    array(
+      'taxonomy' => 'course_programm_category',
+      'field'    => 'slug',
+      'terms'    => $term,
+    ),
+  ),
+) );
     if( $course_programm_category->have_posts() ) {
       while( $course_programm_category->have_posts() ) {
         $course_programm_category->the_post();
@@ -419,7 +436,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 <h1>Стоимость.<br>
 Pricing:<br>
-<span style="color:#F62A49"> <?php echo get_post_meta($post->ID, 'course_test', 1); ?></span> грн в месяц <br>
+<span style="color:#F62A49"> <?php echo get_post_meta($post->ID, 'course_part_price', 1); ?></span> грн в месяц <br>
 или <span style="color:#F62A49"><?php echo get_post_meta($post->ID, 'course_full_price', 1); ?></span> грн<br>
 за весь курс
 </h1> 
@@ -436,23 +453,13 @@ I coworking hub deals with to achieve the goal.</p>
                <div class="col-lg-10 col-lg-offset-1 feedback_block">
 
     <div class="col-lg-12 tutors_block"  >
-<?php echo get_post_meta($post->ID, 'course_price_block_text_1', 1); ?>
+    <h1><?php echo get_post_meta($post->ID, 'course_price_sign_1', 1); ?></h1>
+<?php echo get_post_meta($post->ID, 'course_price_text_1', 1); ?>
           </div>
 
            <div class="col-lg-12 tutors_block"  style="margin-top: 60px;">
-
-<h1 style="margin-left: 0px; text-align: left;">1. Введение в профессию ПМ | Introduction to PM | Тьютор: Алексей Бычков</h1>
-<ul>
-<li>1. Организуйте для себя вместе с куратором менторские телемосты для работы над конкретным кейсом
-или личным проектом.</li>
-<li>2. В Украине — Киеве и Днепре — встречайтесь и работайте с менторами лично в наших
-образовательных Хабах.</li>
-<li>3. В Днепре — участвуйте в воркшопах вместе со студентами очной Школы Бизнеса.</li>
-<li>4. Как выпускник, получите специальную цену на следующий этап обучения в Открытом Лектории
-или одной из Школ Открытого Университета</li>
-<li></li>
-<li>Выберите опции и напишите куратору Школы Бизнеса.</li>
-</ul>
+    <h1><?php echo get_post_meta($post->ID, 'course_price_sign_2', 1); ?></h1>
+<?php echo get_post_meta($post->ID, 'course_price_text_2', 1); ?>
           </div>
 
 </div>
@@ -547,6 +554,8 @@ I coworking hub deals with to achieve the goal.</p>
 
           </div>
         </div>
+  <?php endwhile; ?>
+  <?php endif; ?>
 
 
 <?php get_footer(); ?>

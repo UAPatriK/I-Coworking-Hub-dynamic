@@ -19,7 +19,7 @@
 <ul>
 <li>Dnipro, Kiev</li>
 <li>New York, Los Angeles, Boston, San Francisco</li>
-<li><a href="#">it.education.usa@gmail.com</a></li>
+<li><a href="#" style="color:#fff">it.education.usa@gmail.com</a></li>
 <li>Agreement</li>
 </ul>
 

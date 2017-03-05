@@ -47,24 +47,77 @@ I coworking hub deals with to achieve the goal.</p>
 <a href="#">Подробнее</a>
           </div>
 
-       <div class="col-lg-4 course_item">
+
+  
+<?php
+
+ 
+      //      $args = array(
+      // 'post_type' => 'course_programm',
+      // 'paged'=>  $paged,
+      // 'order' => ASC,
+      //  'posts_per_page' => -1,
+      // 'tax_query' => array(
+      //         'taxonomy' => 'course_programm_category',
+      //       'field' => 'slug',
+      //       'terms' => 'program-pm-online-course',
+      //              ),
+      //                  );
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+       'post_type' => 'course',
+      'paged'=>  $paged,
+      'order' => ASC,
+       'posts_per_page' => -1,
+  'tax_query' => array(
+   
+    array(
+      'taxonomy' => 'school_category',
+      'field'    => 'slug',
+      'terms'    => 'design-school',
+    ),
+  ),
+) );
+    if( $course_programm_category->have_posts() ) {
+      while( $course_programm_category->have_posts() ) {
+        $course_programm_category->the_post();
+        ?>
+        
+
+   <div class="col-lg-4 course_item">
                <div class="col-lg-10 col-lg-offset-1">
 <div class="row item_border">
-               <div class="thumbnail_item">
+
+<a href="<?php the_permalink(); ?>">               <div class="thumbnail_item">
 <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt=""></div>
 
 <div class="col-lg-10" style="margin-left: 10px;">
 <h1>UX Design Essential course</h1>
 <h2>4500 грн в месяц</h2>
 </div>
+</a>
 
-<a href="#">Подробнее</a>
 </div>
 
 </div>
 
           </div>
 
+
+
+           
+       <?php
+      }
+    }
+
+    else {
+     
+    }
+  ?>
+  <?php wp_reset_postdata(); ?>
+
+    
 
      
 
@@ -108,19 +161,60 @@ I coworking hub deals with to achieve the goal.</p>
 <a href="#">Подробнее</a>
           </div>
 
-       <div class="col-lg-4 course_item">
+
+
+
+           
+  
+<?php
+
+ 
+      //      $args = array(
+      // 'post_type' => 'course_programm',
+      // 'paged'=>  $paged,
+      // 'order' => ASC,
+      //  'posts_per_page' => -1,
+      // 'tax_query' => array(
+      //         'taxonomy' => 'course_programm_category',
+      //       'field' => 'slug',
+      //       'terms' => 'program-pm-online-course',
+      //              ),
+      //                  );
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+       'post_type' => 'course',
+      'paged'=>  $paged,
+      'order' => ASC,
+       'posts_per_page' => -1,
+  'tax_query' => array(
+   
+    array(
+      'taxonomy' => 'school_category',
+      'field'    => 'slug',
+      'terms'    => 'business-school',
+    ),
+  ),
+) );
+    if( $course_programm_category->have_posts() ) {
+      while( $course_programm_category->have_posts() ) {
+        $course_programm_category->the_post();
+        ?>
+        
+
+   <div class="col-lg-4 course_item">
                <div class="col-lg-10 col-lg-offset-1">
 <div class="row item_border">
-               <div class="thumbnail_item">
-<img src="<?php bloginfo('template_url'); ?>/images/course_d.png" class="img-responsive" alt=""></div>
+
+<a href="<?php the_permalink(); ?>">                   <div class="thumbnail_item">
+<img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt=""></div>
 
 <div class="col-lg-10" style="margin-left: 10px;">
-<h1>Project management
-course onlinе</h1>
-<h2>3000 грн в месяц</h2>
+<h1><?php echo get_post_meta($post->ID, 'course_sign', 1); ?> </h1>
+<h2><?php echo get_post_meta($post->ID, 'course_part_price', 1); ?> грн в месяц</h2>
 </div>
+</a>
 
-<a href="#">Подробнее</a>
 </div>
 
 </div>
@@ -128,25 +222,17 @@ course onlinе</h1>
           </div>
 
 
-                <div class="col-lg-4 course_item">
-               <div class="col-lg-10 col-lg-offset-1">
-<div class="row item_border">
-               <div class="thumbnail_item">
-<img src="<?php bloginfo('template_url'); ?>/images/item_image_3.png" class="img-responsive" alt=""></div>
 
-<div class="col-lg-10" style="margin-left: 10px;">
-<h1>Project management
-course Dnepr</h1>
-<h2>5000 грн в месяц</h2>
-</div>
+           
+       <?php
+      }
+    }
 
-<a href="#">Подробнее</a>
-</div>
-
-</div>
-
-          </div>
-
+    else {
+     
+    }
+  ?>
+  <?php wp_reset_postdata(); ?>
            
 
 
