@@ -44,7 +44,7 @@ Skillful, intensive, practical education and
 specialized events — it is exactly what
 I coworking hub deals with to achieve the goal.</p>
 
-<a href="#">Подробнее</a>
+<a href="/open-university/design-school/">Подробнее</a>
           </div>
 
 
@@ -161,7 +161,7 @@ Skillful, intensive, practical education and
 specialized events — it is exactly what
 I coworking hub deals with to achieve the goal.</p>
 
-<a href="#">Подробнее</a>
+<a href="/open-university/business-school/">Подробнее</a>
           </div>
 
 
