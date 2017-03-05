@@ -562,6 +562,36 @@ add_filter( 'post_updated_messages', 'my_updated_messages_team' );
 
 
 
+function my_taxonomies_person_type() {
+  $labels = array(
+    'name'              => _x( 'Тип персон', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Тип персоны', 'taxonomy singular name' ),
+    'search_items'      => __( 'Искать тип персоны' ),
+    'all_items'         => __( 'Все типы персон' ),
+    'parent_item'       => __( 'Родительский тип персон' ),
+    'parent_item_colon' => __( 'Родительский тип персон:' ),
+    'edit_item'         => __( 'Редактировать тип персон' ), 
+    'update_item'       => __( 'Обновить тип персон' ),
+    'add_new_item'      => __( 'Добавить новый тип персон' ),
+    'new_item_name'     => __( 'Новый тип персон' ),
+    'menu_name'         => __( 'Типы персон' ),
+  );
+  $args = array(
+        'hierarchical'      => true, // Set this to 'false' for non-hierarchical taxonomy (like tags)
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+      
+        'rewrite' => true
+
+       
+    );
+  register_taxonomy( 'person_category', array('team'), $args );
+}
+add_action( 'init', 'my_taxonomies_person_type', 0 );
+
+
 // подключаем функцию активации мета блока (my_extra_fields)
 add_action('add_meta_boxes', 'my_extra_fields_team', 1);
 
