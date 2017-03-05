@@ -392,6 +392,35 @@ add_filter( 'post_updated_messages', 'my_updated_messages_open_university_talks'
 
 
 
+function my_taxonomies_events_talks() {
+  $labels = array(
+    'name'              => _x( 'Тип событий', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Тип события', 'taxonomy singular name' ),
+    'search_items'      => __( 'Искать тип события' ),
+    'all_items'         => __( 'Все события' ),
+    'parent_item'       => __( 'Родительская категория событий' ),
+    'parent_item_colon' => __( 'Родительская категория события:' ),
+    'edit_item'         => __( 'Редактировать категорию события' ), 
+    'update_item'       => __( 'Обновить категорию события' ),
+    'add_new_item'      => __( 'Добавить новую категорию события' ),
+    'new_item_name'     => __( 'Новая категория события' ),
+    'menu_name'         => __( 'Тип событий' ),
+  );
+  $args = array(
+        'hierarchical'      => true, // Set this to 'false' for non-hierarchical taxonomy (like tags)
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+      
+        'rewrite' => true
+
+       
+    );
+  register_taxonomy( 'item_category', array('open-talks'), $args );
+}
+add_action( 'init', 'my_taxonomies_events_talks', 0 );
+
 // подключаем функцию активации мета блока (my_extra_fields)
 add_action('add_meta_boxes', 'my_extra_fields_open_university_talks', 1);
 
@@ -434,6 +463,14 @@ function extra_fields_box_func_open_university_talks( $post ){
 	</td></label>
 </tr>
 
+<tr><label>
+	<td>
+	Ссылка на событие:
+	</td>
+	<td>
+		 <input type="text" name="extra[ol_url]" value="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
 
 
 	</table>
@@ -723,7 +760,33 @@ $settings = array('textarea_name'=>'extra[course_sign]','textarea_rows'=>10, 'wp
 	</td></label>
 </tr>
 
+<tr><label>
+	<td>
+	Поток 1:
+	</td>
+	<td>
+		 <input type="text" name="extra[flow_1]" value="<?php echo get_post_meta($post->ID, 'flow_1', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
 
+<tr><label>
+	<td>
+	Поток 2:
+	</td>
+	<td>
+		 <input type="text" name="extra[flow_2]" value="<?php echo get_post_meta($post->ID, 'flow_2', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
+
+
+<tr><label>
+	<td>
+	Поток 3:
+	</td>
+	<td>
+		 <input type="text" name="extra[flow_3]" value="<?php echo get_post_meta($post->ID, 'flow_3', 1); ?>" style="width:100%" />
+	</td></label>
+</tr>
 
 <tr><label>
 	<td>
