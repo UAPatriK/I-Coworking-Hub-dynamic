@@ -51,7 +51,7 @@
             <li><a href="#"  class="nav_pds">ХАБ</a></li>
             <li><a href="#"  class="nav_pds">СПЕЦПРОЕКТЫ</a></li>
             <li><a href="#"  class="nav_pds">КОВОРКИНГ</a></li>
-            <li><a href="#" class="nav_pds">О НАС (СОУЛ)</a></li>
+<!--             <li><a href="#" class="nav_pds">О НАС (СОУЛ)</a></li> -->
 
 
           
