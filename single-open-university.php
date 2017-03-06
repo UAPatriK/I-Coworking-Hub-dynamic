@@ -138,7 +138,7 @@ $term = get_post_meta($post->ID, 'ou_courses_slug', 1);
 
 
     <div class="site-wrapper block_borders " >
-      <div class="site-wrapper-inner"  style="display:<?php echo get_post_meta($post->ID, 'ou_talks_visibility', 1); ?>">
+      <div class="site-wrapper-inner" style="display:<?php echo get_post_meta($post->ID, 'ou_talks_visibility', 1); ?>" >
         <div class="cover-container">
           <div class="masthead ">
        
@@ -244,8 +244,8 @@ $term = get_post_meta($post->ID, 'ou_courses_slug', 1);
 
 
 
-    <div class="site-wrapper block_borders " style="display:<?php echo get_post_meta($post->ID, 'ou_spec_projects_visibility', 1); ?>">
-      <div class="site-wrapper-inner">
+    <div class="site-wrapper block_borders " >
+      <div class="site-wrapper-inner" style="display:<?php echo get_post_meta($post->ID, 'ou_spec_projects_visibility', 1); ?>">
         <div class="cover-container">
           <div class="masthead ">
        
@@ -304,8 +304,8 @@ I coworking hub deals with to achieve the goal.</p>
 
 
 
-<div class="site-wrapper block_borders " style="display:<?php echo get_post_meta($post->ID, 'ou_tutors_visibility', 1); ?>">
-      <div class="site-wrapper-inner">
+<div class="site-wrapper block_borders " >
+      <div class="site-wrapper-inner" style="display:<?php echo get_post_meta($post->ID, 'ou_tutors_visibility', 1); ?>">
         <div class="cover-container">
      
 
@@ -319,24 +319,57 @@ Tutors, mentors.</h1>
 
           </div>
 
-       <div class="col-lg-4 course_item">
-               <div class="col-lg-10 col-lg-offset-1">
+    
+
+       <?php
+
+ $term = get_post_meta($post->ID, 'ou_tutors_slug', 1);
+      //      $args = array(
+      // 'post_type' => 'course_programm',
+      // 'paged'=>  $paged,
+      // 'order' => ASC,
+      //  'posts_per_page' => -1,
+      // 'tax_query' => array(
+      //         'taxonomy' => 'course_programm_category',
+      //       'field' => 'slug',
+      //       'terms' => 'program-pm-online-course',
+      //              ),
+      //                  );
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+       'post_type' => 'team',
+      'paged'=>  $paged,
+      'order' => ASC,
+       'posts_per_page' => -1,
+  'tax_query' => array(
+   
+    array(
+      'taxonomy' => 'person_category',
+      'field'    => 'slug',
+      'terms'    => $term,
+    ),
+  ),
+) );
+    if( $course_programm_category->have_posts() ) {
+      while( $course_programm_category->have_posts() ) {
+        $course_programm_category->the_post();
+        ?>
+        
+
+   <div class="col-lg-4 course_item" >
+               <div class="col-lg-11 col-lg-offset-1">
 <div class="row item_border">
-               <div class="thumbnail_item">
-<img src="images/tutor_example.png" class="img-responsive" alt=""></div>
+
+<a href="<?php echo get_post_meta($post->ID, 'person_soc_url', 1); ?>">                   <div class="thumbnail_item">
+<?php the_post_thumbnail('','class=img-responsive'); ?></div>
 
 <div class="col-lg-10" style="margin-left: 10px;">
-<h1><br>
-Liubov Kolbina
-</h1>
-<!-- <h2>4500 грн в месяц</h2> -->
-<p>
-  Project Manager at SoftServe |
-Tutor at U Open University, I
-Сoworking Hub
-</p>
+<h1><?php echo get_post_meta($post->ID, 'person_rus_name', 1); ?> </h1>
+<h1><?php echo get_post_meta($post->ID, 'person_eng_name', 1); ?> </h1>
+<p><?php echo get_post_meta($post->ID, 'person_jd', 1); ?> </p>
 </div>
-
+</a>
 
 </div>
 
@@ -344,6 +377,18 @@ Tutor at U Open University, I
 
           </div>
 
+
+
+           
+       <?php
+      }
+    }
+
+    else {
+     
+    }
+  ?>
+  <?php wp_reset_postdata(); ?>
 
 
           </div>
@@ -361,9 +406,9 @@ Tutor at U Open University, I
 
 
 
-    <div class="site-wrapper block_borders " style="display:<?php echo get_post_meta($post->ID, 'ou_alumni_visibility', 1); ?>">
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
+    <div class="site-wrapper block_borders " >
+      <div class="site-wrapper-inner" style="display:<?php echo get_post_meta($post->ID, 'ou_alumni_visibility', 1); ?>">
+        <div class="cover-container"> 
      
 
           <div class="inner cover " style="margin-top: 200px;">
@@ -376,28 +421,75 @@ Alumni.</h1>
 
           </div>
 
-       <div class="col-lg-4 course_item">
-               <div class="col-lg-10 col-lg-offset-1">
+ 
+       <?php
+
+ $term = get_post_meta($post->ID, 'ou_alumni_slug', 1);
+      //      $args = array(
+      // 'post_type' => 'course_programm',
+      // 'paged'=>  $paged,
+      // 'order' => ASC,
+      //  'posts_per_page' => -1,
+      // 'tax_query' => array(
+      //         'taxonomy' => 'course_programm_category',
+      //       'field' => 'slug',
+      //       'terms' => 'program-pm-online-course',
+      //              ),
+      //                  );
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+       'post_type' => 'team',
+      'paged'=>  $paged,
+      'order' => ASC,
+       'posts_per_page' => -1,
+  'tax_query' => array(
+   
+    array(
+      'taxonomy' => 'person_category',
+      'field'    => 'slug',
+      'terms'    => $term,
+    ),
+  ),
+) );
+    if( $course_programm_category->have_posts() ) {
+      while( $course_programm_category->have_posts() ) {
+        $course_programm_category->the_post();
+        ?>
+        
+
+   <div class="col-lg-4 course_item" >
+               <div class="col-lg-11 col-lg-offset-1">
 <div class="row item_border">
-               <div class="thumbnail_item">
-<img src="images/alumni_example.png" class="img-responsive" alt=""></div>
+
+<a href="<?php echo get_post_meta($post->ID, 'person_soc_url', 1); ?>">                   <div class="thumbnail_item">
+<?php the_post_thumbnail('','class=img-responsive'); ?></div>
 
 <div class="col-lg-10" style="margin-left: 10px;">
-<h1>Elena Pred<br>
-Елена Пред
-</h1>
-<!-- <h2>4500 грн в месяц</h2> -->
-<p>
- Выпускница Design school | U Open University
-</p>
+<h1><?php echo get_post_meta($post->ID, 'person_rus_name', 1); ?> </h1>
+<h1><?php echo get_post_meta($post->ID, 'person_eng_name', 1); ?> </h1>
+<p><?php echo get_post_meta($post->ID, 'person_jd', 1); ?> </p>
 </div>
-
+</a>
 
 </div>
 
 </div>
 
           </div>
+
+
+
+           
+       <?php
+      }
+    }
+
+    else {
+     
+    }
+  ?>
+  <?php wp_reset_postdata(); ?>
 
 
 

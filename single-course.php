@@ -106,36 +106,45 @@ Tutors, mentors.</h1>
           </div>
 
 
+
 <?php
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args = array(
-      'post_type' => 'partners',
-      'posts_per_page' => 6,
-      'paged'=>  $paged
-         );
-    $projects_category = new WP_Query( $args );
-    if( $projects_category->have_posts() ) {
-      while( $projects_category->have_posts() ) {
-        $projects_category->the_post();
+
+ $term = get_post_meta($post->ID, 'course_tutors_cpt', 1);
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+       'post_type' => 'team',
+      'paged'=>  $paged,
+      'order' => ASC,
+       'posts_per_page' => -1,
+  'tax_query' => array(
+   
+    array(
+      'taxonomy' => 'person_category',
+      'field'    => 'slug',
+      'terms'    => $term,
+    ),
+  ),
+) );
+    if( $course_programm_category->have_posts() ) {
+      while( $course_programm_category->have_posts() ) {
+        $course_programm_category->the_post();
         ?>
-        <div class="col-lg-4 course_item">
-               <div class="col-lg-10 col-lg-offset-1">
+        
+
+ <div class="col-lg-4 course_item" >
+               <div class="col-lg-11 col-lg-offset-1">
 <div class="row item_border">
-               <div class="thumbnail_item">
-<img src="images/tutor_example.png" class="img-responsive" alt=""></div>
+
+<a href="<?php echo get_post_meta($post->ID, 'person_soc_url', 1); ?>">                   <div class="thumbnail_item">
+<?php the_post_thumbnail('','class=img-responsive'); ?></div>
 
 <div class="col-lg-10" style="margin-left: 10px;">
-<h1>Любовь Колбина<br>
-Liubov Kolbina
-</h1>
-<!-- <h2>4500 грн в месяц</h2> -->
-<p>
-  Project Manager at SoftServe |
-Tutor at U Open University, I
-Сoworking Hub
-</p>
+<h1><?php echo get_post_meta($post->ID, 'person_rus_name', 1); ?> </h1>
+<h1><?php echo get_post_meta($post->ID, 'person_eng_name', 1); ?> </h1>
+<p><?php echo get_post_meta($post->ID, 'person_jd', 1); ?> </p>
 </div>
-
+</a>
 
 </div>
 
@@ -144,20 +153,18 @@ Tutor at U Open University, I
           </div>
 
 
-            
-      <?php
+
+
+           
+       <?php
       }
     }
-    else {
 
-      
+    else {
+     
     }
   ?>
-
-    
-
- <?php wp_reset_postdata(); ?>
-
+  <?php wp_reset_postdata(); ?>
 
 
 
