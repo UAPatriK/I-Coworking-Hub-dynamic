@@ -11,9 +11,9 @@
             </div>
           </div>
 
-          <div class="inner cover">
+          <div class="inner cover slide-styles">
           
-          <div class="col-lg-4 footer_block">
+          <div class="col-md-4 col-xs-12 footer_block">
 <h1>People</h1>
 
 <ul>
@@ -25,7 +25,7 @@
 
           </div>
 
-             <div class="col-lg-4 footer_block">
+             <div class="col-md-4 col-xs-12 footer_block">
 <h1>Business</h1>
 
 <ul>
@@ -41,7 +41,7 @@
 
           </div>
 
-             <div class="col-lg-4 footer_block">
+             <div class="col-md-4 col-xs-12 footer_block">
 <h1>Education</h1>
 
 <ul>
@@ -57,13 +57,15 @@
           
           </div>
 
-          <div class="mastfoot" style="border-top:1px solid #D8D8D8;">
-            <div class="col-lg-8">
+          <div class="mastfoot" >
+          <div class="slide-styles">  
+            <div class="col-sm-8 col-xs-12">
               <p class="text-left footer_block_2">&copy; 2014-2016 Icoworkinghub - this site is a copyright and trademark of beGenius LLC.</p>
             </div>
 
-            <div class="col-lg-4  footer_block_2 footer_soc_icons">
+            <div class="col-sm-4 col-xs-12 footer_block_2 footer_soc_icons">
               <i class="fa fa-twitter-square" aria-hidden="true"></i> <i class="fa fa-linkedin-square" aria-hidden="true"></i>  <i class="fa fa-facebook-official" aria-hidden="true"> <i class="fa fa-youtube-play" aria-hidden="true"></i></i> 
+            </div>
             </div>
           </div>
 
@@ -81,10 +83,11 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
     <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/cd16f33d6c.js"></script> 
+    <script src="<?php bloginfo('template_url'); ?>/js/index.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
      <?php wp_footer(); ?>

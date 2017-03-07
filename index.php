@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<div class="site-wrapper">
+<div class="site-wrapper hidden-xs">
   <div class="site-wrapper-inner">
     <div class="cover-container">
-      <div class="inner cover" style="">
+      <div class="inner cover">
         <div class="row"> <?php echo do_shortcode( '[metaslider id=246]' ); ?></div>
       </div>
     </div>
@@ -11,10 +11,13 @@
 </div>
 
 
+
 <!-- BLOCK WITH COURSES OF DESIGN SCHOOL -->
 <div class="col-xs-12 block_borders slide-styles">
+<section class="main3">
+
   <div class="col-sm-6 col-md-4 col-xs-12 text_block" style="" >
-    <h1>Школа Дизайна. <br>Design School.</h1>
+  <h1>Школа Дизайна. <br>Design School.</h1>
     <p style="width: 83%">The world needs new acting talents and geniuses.
       Skillful, intensive, practical education and
       specialized events — it is exactly what
@@ -43,15 +46,17 @@
         ?>
 
         <div class="col-sm-6 col-md-4 col-xs-12  course_item">
-          <div class="col-lg-11 col-lg-offset-1">
+          <div class="col-lg-11 col-lg-offset-right-1">
             <div class="row item_border">
-              <a href="<?php the_permalink(); ?>">               
+              <a href="<?php the_permalink(); ?>" class="item_link">               
                 <div class="thumbnail_item">
                   <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
                 </div>
                 <div class="col-lg-10" style="margin-left: 10px;">
-                  <h1><?php echo get_post_meta($post->ID, 'course_sign', 1); ?> </h1>
-                  <h2><?php echo get_post_meta($post->ID, 'course_part_price', 1); ?> грн в месяц</h2>
+                  <article>
+                    <h1><?php echo get_post_meta($post->ID, 'course_sign', 1); ?> </h1>
+                    <h2><?php echo get_post_meta($post->ID, 'course_part_price', 1); ?> грн в месяц</h2>
+                  </article>
                   <p><?php echo get_post_meta($post->ID, 'flow_3', 1); ?></p>
                   <p><?php echo get_post_meta($post->ID, 'flow_2', 1); ?></p>
                   <p><?php echo get_post_meta($post->ID, 'flow_1', 1); ?></p>
@@ -68,14 +73,14 @@
     }
     ?>
     <?php wp_reset_postdata(); ?>
-
+</section>
 </div>
 <!-- END OF BLOCK WITH COURSES OF DESIGN SCHOOL -->
 
 
 <!-- BLOCK WITH COURSES OF BUSINESS SCHOOL -->
 <div class="col-xs-12 block_borders slide-styles">
-
+<section class="main">
   <div class="col-sm-6 col-md-4 col-xs-12 text_block"  >
     <h1>Школа Бизнеса. <br>Курсы. <br>Business School. <br>Courses</h1>
     <p style="width: 83%">The world needs new acting talents and geniuses.
@@ -106,20 +111,26 @@
         ?>
         
         <div class="col-sm-6 col-md-4 col-xs-12 course_item">
-          <div class="col-lg-10 col-lg-offset-1">
+          <div class="col-lg-10 col-lg-offset-right-1">
             <div class="row item_border">
 
-            <a href="<?php the_permalink(); ?>">                   
+            <a href="<?php the_permalink(); ?>"  class="item_link">                   
               <div class="thumbnail_item">
                 <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
               </div>
 
               <div class="col-lg-11" style="margin-left: 10px;">
-                <h1><?php echo get_post_meta($post->ID, 'course_sign', 1); ?> </h1>
-                <h2><?php echo get_post_meta($post->ID, 'course_part_price', 1); ?> грн в месяц</h2>
-                <p><?php echo get_post_meta($post->ID, 'flow_3', 1); ?></p>
-                <p style="margin-top: 0px !important;"><?php echo get_post_meta($post->ID, 'flow_2', 1); ?></p>
-                <p style="margin-top: 0px !important;"><?php echo get_post_meta($post->ID, 'flow_1', 1); ?></p>
+                <article>
+                  <h1><?php echo get_post_meta($post->ID, 'course_sign', 1); ?> </h1>
+                  <h2><?php echo get_post_meta($post->ID, 'course_part_price', 1); ?> грн в месяц</h2>
+                </article>
+                <div class="main2">
+                <div id="main3" style="margin-bottom: 10px;">
+                  <p><?php echo get_post_meta($post->ID, 'flow_3', 1); ?></p>
+                  <p style="margin-top: 0px !important;"><?php echo get_post_meta($post->ID, 'flow_2', 1); ?></p>
+                  <p style="margin-top: 0px !important; bottom:0 !important;"><?php echo get_post_meta($post->ID, 'flow_1', 1); ?></p>
+                </div>
+                </div>
               </div>
             </a>
 
@@ -134,6 +145,7 @@
   }
   ?>
   <?php wp_reset_postdata(); ?>
+  </section>
 </div>
 <!-- END OF BLOCK WITH COURSES OF BUSINESS SCHOOL -->
 
@@ -141,8 +153,9 @@
 
 <!-- BLOCK WITH LECTURES OF BUSINESS SCHOOL -->
 <div class="col-xs-12 block_borders slide-styles" >
+<section class="main">
   <div class="col-sm-6 col-md-4 col-xs-12  text_block"  >
-    <h1>Школа Бизнеса. <br>Лекции. <br>Business School. <br> Lectures</h1>
+  <article> <h1>Школа Бизнеса. <br>Лекции. <br>Business School. <br> Lectures</h1></article>
     <!-- <p style="width: 83%">The world needs new acting talents and geniuses.
     Skillful, intensive, practical education and
     specialized events — it is exactly what
@@ -150,6 +163,8 @@
      -->
   </div>
   
+
+
   <?php
 
     $course_programm_category = new WP_Query( $args );
@@ -171,17 +186,19 @@
       $course_programm_category->the_post();
       ?>
 
-    <div class="col-sm-6 col-md-4 col-xs-12  course_item" >
-     <div class="col-lg-11 col-lg-offset-1">
+    <div class="col-lg-4 col-sm-6 col-md-4 col-xs-12  course_item" >
+     <div class="col-lg-11 col-lg-offset-right-1">
       <div class="row item_border">
-        <a href="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>">                  
+        <a href="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>"  class="item_link">                  
           <div class="thumbnail_item">
             <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
           </div>
           <div class="col-lg-10" style="margin-left: 10px;">
-            <h1><?php echo get_post_meta($post->ID, 'ol_title', 1); ?> </h1>
-            <h2 style=""><?php echo get_post_meta($post->ID, 'ol_price', 1); ?> </h2>
-            <p><?php echo get_post_meta($post->ID, 'ol_description', 1); ?> </p>
+           <article > 
+              <h1><?php echo get_post_meta($post->ID, 'ol_title', 1); ?> </h1>
+              <h2><?php echo get_post_meta($post->ID, 'ol_price', 1); ?> </h2>
+           </article>
+           <p><?php echo get_post_meta($post->ID, 'ol_description', 1); ?> </p>
           </div>
         </a>
       </div>
@@ -195,23 +212,18 @@
   }
   ?>
   <?php wp_reset_postdata(); ?>
+  </section>
 </div>
 <!-- END OF BLOCK WITH LECTURES OF BUSINESS SCHOOL -->
 
 
-    <div class="col-xs-12 block_borders slide-styles" >
+<!--     <div class="col-xs-12 block_borders slide-styles" >
      
      
         <div class="col-lg-4 text_block"  >
 
 <h1>Выпускники говорят. <br>Alumni talks</h1>
 
-<!-- <p style="width: 83%">The world needs new acting talents and geniuses.
-Skillful, intensive, practical education and
-specialized events — it is exactly what
-I coworking hub deals with to achieve the goal.</p>
-
-<a href="#">Подробнее</a> -->
           </div>
 
        <div class="col-lg-8 ">
@@ -271,14 +283,13 @@ COWORKING HUB дали мне возможность двигаться даль
 
           </div>
 
-
           
 
            
 
 
 
-    </div>
+    </div> -->
 
 
 
