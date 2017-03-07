@@ -7,7 +7,7 @@
        
           </div>
 
-          <div class="inner cover" style="margin-top: 40px;">
+          <div class="inner cover" style="">
            <img src="<?php bloginfo('template_url'); ?>/images/top_slider.png" class="img-responsive" alt="">
           </div>
 

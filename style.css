@@ -79,10 +79,14 @@ body {
 }
 .masthead-nav > li > a:hover,
 .masthead-nav > li > a:focus {
+
   background-color: transparent;
   border-bottom-color: #a9a9a9;
   border-bottom-color: rgba(255,255,255,.25);
 }
+
+
+
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
@@ -187,10 +191,10 @@ body {
 
 }
 
-.nav_pds {
+/* .nav_pds {
   padding-right: 45px;
 padding-left: 45px;
-}
+} */
 /* .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #fff;
@@ -199,7 +203,18 @@ padding-left: 45px;
    display: block;
 }
  */
+
+.navbar-inverse .navbar-nav > .active > a:after,
 .navbar-inverse .navbar-nav > li > a:hover:after {
+  bottom: -10px;
+  position: absolute;
+  content: '';
+  width: 100%;
+  left: 0;
+    border-bottom: 8px solid #F92544;
+}
+
+/* .navbar-inverse .navbar-nav > li > a:hover:after {
     content: "";
   
     background-color: #F92544;
@@ -209,7 +224,7 @@ padding-left: 45px;
     right: 0;
     left: 0;
     bottom: 0;
-}
+} */
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
@@ -293,9 +308,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 
 
 
-.navbar {
+.navbar, .navbar-header {
 
-  min-height: 80px;
+  min-height: 80px !important;
   margin-bottom: 0px;
   border: 0px solid transparent;
 }
@@ -630,3 +645,39 @@ padding-bottom: 10px;
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #fff;
 }
+
+
+
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 767px) { 
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+/* width: 220px; */
+margin-bottom: 10px;
+}
+
+.navbar-toggle {
+  margin-top: 22px;
+}
+
+ }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+
+
+ }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+ }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+
+ }

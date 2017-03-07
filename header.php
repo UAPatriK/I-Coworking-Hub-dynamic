@@ -46,7 +46,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         
-          <ul class="nav navbar-nav navbar-right" style="margin-top: 38px; position: absolute; right:15px; font-family: Futura Futurisc Regular; font-size: 16px; ">
+          <ul class="nav navbar-nav navbar-right" style="margin-top: 28px; font-family: Futura Futurisc Regular; font-size: 16px; ">
             <li><a href="#">ОТКРЫТЫЙ УНИВЕРСИТЕТ</a></li>
             <li><a href="#"  class="nav_pds">ХАБ</a></li>
             <li><a href="#"  class="nav_pds">СПЕЦПРОЕКТЫ</a></li>
