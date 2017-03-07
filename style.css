@@ -670,7 +670,7 @@ margin-bottom: 10px;
    .slide-styles {
 padding-top: 80px; padding-left:15px; padding-right: 15px;
  }
- 
+
 .text_block,
  .course_item {
   margin-bottom: 80px;
@@ -754,7 +754,15 @@ a.item_link,
 
 
 
+.img-cover {
 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   width: 100%;
+  height: auto;
+}
 
 
 

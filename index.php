@@ -50,7 +50,7 @@
             <div class="row item_border">
               <a href="<?php the_permalink(); ?>" class="item_link">               
                 <div class="thumbnail_item">
-                  <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
+                <?php the_post_thumbnail('','class=img-responsive'); ?>
                 </div>
                 <div class="col-lg-10" style="margin-left: 10px;">
                   <article>
@@ -116,7 +116,7 @@
 
             <a href="<?php the_permalink(); ?>"  class="item_link">                   
               <div class="thumbnail_item">
-                <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
+              <?php the_post_thumbnail('','class=img-responsive'); ?>
               </div>
 
               <div class="col-lg-11" style="margin-left: 10px;">

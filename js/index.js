@@ -42,6 +42,16 @@ $(window).resize(function(){
   equalheight('.main article');
 });
 
+$(window).load(function() {
+  equalheight('.main1  article');
+});
+
+
+$(window).resize(function(){
+  equalheight('.main1 article');
+});
+
+
 
 $(window).load(function() {
   equalheight('.main2  article');
@@ -68,4 +78,15 @@ $(window).load(function() {
 
 $(window).resize(function(){
   equalheight('.main2  #main3');
+});
+
+
+
+$(window).load(function() {
+  equalheight('.main1   #main2');
+});
+
+
+$(window).resize(function(){
+  equalheight('.main1  #main2');
 });
