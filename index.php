@@ -3,12 +3,10 @@
     <div class="site-wrapper">
       <div class="site-wrapper-inner">
         <div class="cover-container">
-          <div class="masthead clearfix">
-       
-          </div>
+      
 
           <div class="inner cover" style="">
-           <img src="<?php bloginfo('template_url'); ?>/images/top_slider.png" class="img-responsive" alt="">
+        <div class="row"> <?php echo do_shortcode( '[metaslider id=246]' ); ?></div>
           </div>
 
   <!--         <div class="mastfoot">
@@ -26,14 +24,11 @@
 
 
 
-    <div class="site-wrapper block_borders " >
-      <div class="site-wrapper-inner">
-        <div class="cover-container">
-          <div class="masthead ">
-       
-          </div>
+    <div class="col-xs-12 block_borders "  style="padding-top: 40px; padding-left:45px; padding-right: 45px;">
+  
+  
 
-          <div class="inner cover " style="margin-top: 40px;">
+ 
      
         <div class="col-lg-4 text_block" style="height: 500px;" >
 
@@ -127,13 +122,12 @@ I coworking hub deals with to achieve the goal.</p>
            
 
 
-          </div>
+   
 
 
 
-        </div>
-
-      </div>
+      
+  
 
     </div>
 
