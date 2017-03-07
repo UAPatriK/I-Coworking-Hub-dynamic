@@ -394,11 +394,11 @@ text-decoration: underline;
   border-bottom: 10px solid #61686B;
 }
 .course_item {
-  margin-bottom: 200px;
+  margin-bottom: 160px;
 }
 
 .course_item h1 {
-  font-size: 36px;
+  font-size: 32px;
   text-align: left;
   color:  #61686B;
     font-family:  Futura Futurisc Regular;
@@ -406,7 +406,7 @@ text-decoration: underline;
 
 
 .course_item h2 {
-  font-size: 30px;
+  font-size: 26px;
   text-align: left;
   color:  #000;
     font-family:  Futura Futurisc Regular;
@@ -416,7 +416,7 @@ text-decoration: underline;
     font-size: 18px;
   text-align: left;
   color:  #a8a8a8;
-  margin-top: 100px;
+  margin-top: 80px;
     font-family:  Futura Futurisc Regular;
 }
 
@@ -679,5 +679,11 @@ margin-bottom: 10px;
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 
+
+ }
+
+ .slide-styles {
+
+padding-top: 160px; padding-left:45px; padding-right: 45px;
 
  }
