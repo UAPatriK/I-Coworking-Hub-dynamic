@@ -88,6 +88,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/cd16f33d6c.js"></script> 
     <script src="<?php bloginfo('template_url'); ?>/js/index.js"></script>
+    <script src="<?php bloginfo('template_url'); ?>/js/collapse-toggle.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
      <?php wp_footer(); ?>
