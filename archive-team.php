@@ -49,7 +49,7 @@
             <div class="row item_border">
               <a href="<?php echo get_post_meta($post->ID, 'person_soc_url', 1); ?>">                   
                 <div class="thumbnail_item">
-                  <?php the_post_thumbnail('','class=img-responsive'); ?>
+                  <?php the_post_thumbnail('','class=img-responsive hidden-xs'); ?>
                 </div>
 
                 <div class="col-lg-10" style="margin-left: 10px;">
@@ -120,7 +120,7 @@
             <div class="row item_border">
               <a href="<?php echo get_post_meta($post->ID, 'person_soc_url', 1); ?>">                   
                 <div class="thumbnail_item">
-                  <?php the_post_thumbnail('','class=img-responsive'); ?>
+                  <?php the_post_thumbnail('','class=img-responsive hidden-xs'); ?>
                 </div>
 
                 <div class="col-lg-10" style="margin-left: 10px;">

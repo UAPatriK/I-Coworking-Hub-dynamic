@@ -51,8 +51,8 @@
        <div class="col-lg-11 col-lg-offset-right-1">
         <div class="row item_border">
           <a href="<?php the_permalink(); ?>"  class="item_link">                   
-            <div class="thumbnail_item">
-              <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
+            <div class="thumbnail_item ">
+               <?php the_post_thumbnail('','class=img-responsive'); ?>
             </div>
             <div class="col-lg-10" style="margin-left: 10px;">
             <article>
@@ -200,8 +200,8 @@ else {
          <div class="col-lg-11 col-lg-offset-right-1">
           <div class="row item_border">
             <a href="<?php echo get_post_meta($post->ID, 'person_soc_url', 1); ?>"  class="item_link">                   
-              <div class="thumbnail_item">
-                <?php the_post_thumbnail('','class=img-responsive'); ?>
+              <div class="thumbnail_item ">
+                <?php the_post_thumbnail('','class=img-responsive hidden-xs'); ?>
               </div>
 
               <div class="col-lg-10" style="margin-left: 10px;">
@@ -272,7 +272,7 @@ else {
 
             <a href="<?php echo get_post_meta($post->ID, 'person_soc_url', 1); ?>" class="item_link">                   
               <div class="thumbnail_item">
-                <?php the_post_thumbnail('','class=img-responsive'); ?>
+                <?php the_post_thumbnail('','class=img-responsive hidden-xs'); ?>
               </div>
 
               <div class="col-lg-10" style="margin-left: 10px;">
