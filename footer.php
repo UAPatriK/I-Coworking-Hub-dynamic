@@ -19,8 +19,8 @@
 <ul>
 <li>Dnipro, Kiev</li>
 <li>New York, Los Angeles, Boston, San Francisco</li>
-<li><a href="#" style="color:#fff">it.education.usa@gmail.com</a></li>
-<li>Agreement</li>
+<li><a href="mailto:it.education.usa@gmail.com">it.education.usa@gmail.com</a></li>
+  <li><a href="#">Agreement</a></li>
 </ul>
 
           </div>
@@ -29,14 +29,14 @@
 <h1>Business</h1>
 
 <ul>
-<li>Report</li>
-<li>I values</li>
-<li>I method</li>
-<li>I products</li>
-<li>Thesaurus</li>
-<li>beGenius concept</li>
-<li>Production</li>
-<li>I business incubator</li>
+  <li><a href="#">Report</a></li>
+<li><a href="#">I values</a></li>
+<li><a href="#">I method</a></li>
+<li><a href="#">I products</a></li>
+<li><a href="#">Thesaurus</a></li>
+<li><a href="#">beGenius concept</a></li>
+<li><a href="#">Production</a></li>
+<li><a href="#">I business incubator</a></li>
 </ul>
 
           </div>
@@ -45,12 +45,15 @@
 <h1>Education</h1>
 
 <ul>
-<li>Project management course online</li>
-<li>Project management course Dnepr</li>
-<li>UX Design Essential course</li>
-<li>Events on Facebook</li>
-<li>I coworking hub welcome form</li>
+<li><a href="/course/project-management-course-online/">Project management course online</a></li>
+<li><a href="/course/project-management-course-dnepr/">Project management course Dnepr</a></li>
+<li><a href="/course/ux-design-essential-course/">UX Design Essential course</a></li>
+<li><a href="https://www.facebook.com/pg/Icoworkinghub/events/?ref=page_internal">Events on Facebook</a></li>
+<li><a href="#">I coworking hub welcome form</a></li>
 </ul>
+
+<div class="row"><div class="col-xs-12 col-sm-12 col-md-6" style="margin-bottom: 20px;"><a href="https://play.google.com/store/apps/details?id=u.open.university" target="blank"><img src="<?php bloginfo('template_url'); ?>/images/google_play_ico.png" class="img-responsive" alt=""></a></div>
+<div class="col-xs-12 col-sm-12 col-md-6"><a href="#"><img src="<?php bloginfo('template_url'); ?>/images/apple_store_ico.png" class="img-responsive" height="60px" alt=""></a></div></div>
 
           </div>
             
@@ -58,7 +61,7 @@
           </div>
 
           <div class="mastfoot" >
-          <div class="slide-styles">  
+          <div class="">  
             <div class="col-sm-8 col-xs-12">
               <p class="text-left footer_block_2">&copy; 2014-2016 Icoworkinghub - this site is a copyright and trademark of beGenius LLC.</p>
             </div>
