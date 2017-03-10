@@ -146,24 +146,62 @@ else {
 
 <!-- BLOCK WITH SCHOOL SPECIAL PROJECTS -->
 <div class="col-xs-12 block_borders slide-styles"  style="display:<?php echo get_post_meta($post->ID, 'ou_spec_projects_visibility', 1); ?>">
+<section class="main3">
   <div class="col-sm-6 col-md-4 col-xs-12 text_block"  >
     <h1><?php echo get_post_meta($post->ID, 'ou_ru_spec_projects', 1); ?> <br><?php echo get_post_meta($post->ID, 'ou_eng_spec_projects', 1); ?></h1>
   </div>
 
-  <div class="col-sm-6 col-md-4 col-xs-12 course_item">
-   <div class="col-lg-11 col-lg-offset-1">
-    <div class="row item_border">
-     <div class="thumbnail_item">
-                 <?php the_post_thumbnail('','class=img-responsive'); ?></div>
 
-      <div class="col-lg-10" style="margin-left: 10px;">
-        <h1>PechaKucha Night</h1>
-        <h2>200 грн за встречу</h2>
+  <?php
+  $term = get_post_meta($post->ID, 'ou_spec_projects_slug', 1);
+     
+  $course_programm_category = new WP_Query( $args );
+  $course_programm_category = new WP_Query( array(
+   'post_type' => 'open-talks',
+   'paged'=>  $paged,
+   'order' => ASC,
+   'posts_per_page' => -1,
+   'tax_query' => array(
+    array(
+      'taxonomy' => 'item_category',
+      'field'    => 'slug',
+      'terms'    => $term,
+      ),
+    ),
+   ) );
+  if( $course_programm_category->have_posts() ) {
+    while( $course_programm_category->have_posts() ) {
+      $course_programm_category->the_post();
+      ?>
+
+      <div class="col-sm-6 col-md-4 col-xs-12 course_item" >
+       <div class="col-lg-11 col-lg-offset-right-1">
+        <div class="row item_border">
+          <a href="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>"  class="item_link">                   
+            <div class="thumbnail_item">
+                          <?php the_post_thumbnail('','class=img-responsive'); ?>
+            </div>
+
+            <div class="col-lg-10" style="margin-left: 10px;">
+              <article>
+                <h1><?php echo get_post_meta($post->ID, 'ol_title', 1); ?> </h1>
+                <h2 style=""><?php echo get_post_meta($post->ID, 'ol_price', 1); ?> </h2>
+              </article>
+              <p><?php echo get_post_meta($post->ID, 'ol_description', 1); ?> </p>
+            </div>
+          </a>
+        </div>
       </div>
-
     </div>
-  </div>
-</div>
+
+    <?php
+  }
+}
+else {
+}
+?>
+<?php wp_reset_postdata(); ?>
+</section>
 </div>
 <!-- END OF BLOCK WITH SCHOOL SPECIAL PROJECTS -->
 

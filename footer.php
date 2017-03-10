@@ -67,7 +67,10 @@
             </div>
 
             <div class="col-sm-4 col-xs-12 footer_block_2 footer_soc_icons">
-              <i class="fa fa-twitter-square" aria-hidden="true"></i> <i class="fa fa-linkedin-square" aria-hidden="true"></i>  <i class="fa fa-facebook-official" aria-hidden="true"> <i class="fa fa-youtube-play" aria-hidden="true"></i></i> 
+             <!--  <i class="fa fa-twitter-square" aria-hidden="true"></i> --> 
+             <a href="https://www.linkedin.com/company-beta/4845796/" target="blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i>  </a>
+             <a href="https://www.facebook.com/Icoworkinghub/" target="blank"><i class="fa fa-facebook-official" aria-hidden="true"></i>  </a>
+             <a href="https://www.youtube.com/channel/UCB8ds-1Y_6rUfa76QkwfqHQ" target="blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
             </div>
             </div>
           </div>
