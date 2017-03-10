@@ -118,7 +118,7 @@ else {
         <div class="row item_border">
           <a href="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>"  class="item_link">                   
             <div class="thumbnail_item">
-              <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
+                          <?php the_post_thumbnail('','class=img-responsive'); ?>
             </div>
 
             <div class="col-lg-10" style="margin-left: 10px;">
@@ -154,7 +154,7 @@ else {
    <div class="col-lg-11 col-lg-offset-1">
     <div class="row item_border">
      <div class="thumbnail_item">
-      <img src="images/course_d.png" class="img-responsive" alt=""></div>
+                 <?php the_post_thumbnail('','class=img-responsive'); ?></div>
 
       <div class="col-lg-10" style="margin-left: 10px;">
         <h1>PechaKucha Night</h1>
