@@ -78,15 +78,86 @@
 <!-- END OF BLOCK WITH COURSES OF DESIGN SCHOOL -->
 
 
+
+<!-- BLOCK WITH LECTURES OF DESIGN SCHOOL -->
+<div class="col-xs-12 block_borders slide-styles" >
+<section class="main">
+  <div class="col-sm-6 col-md-4 col-xs-12  text_block"  >
+  <article> <h1>Школа Дизайна. <br>Лекции. <br>Design School. <br> Lectures</h1></article>
+    <!-- <p style="width: 83%">The world needs new acting talents and geniuses.
+    Skillful, intensive, practical education and
+    specialized events — it is exactly what
+    I coworking hub deals with to achieve the goal.</p>
+     -->
+  </div>
+  
+
+
+  <?php
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+    'post_type' => 'open-talks',
+    'paged'=>  $paged,
+    'order' => ASC,
+    'posts_per_page' => -1,
+    'tax_query' => array(
+      array(
+      'taxonomy' => 'item_category',
+      'field'    => 'slug',
+      'terms'    => 'лекции-школы-дизайна',
+      ),
+    ),
+   ) );
+  if( $course_programm_category->have_posts() ) {
+    while( $course_programm_category->have_posts() ) {
+      $course_programm_category->the_post();
+      ?>
+
+    <div class="col-lg-4 col-sm-6 col-md-4 col-xs-12  course_item" >
+     <div class="col-lg-11 col-lg-offset-right-1">
+      <div class="row item_border">
+        <a href="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>"  class="item_link">                  
+          <div class="thumbnail_item">
+               <?php the_post_thumbnail('','class=img-responsive'); ?>
+          </div>
+          <div class="col-lg-10" style="margin-left: 10px;">
+           <article > 
+              <h1><?php echo get_post_meta($post->ID, 'ol_title', 1); ?> </h1>
+              <h2><?php echo get_post_meta($post->ID, 'ol_price', 1); ?> </h2>
+           </article>
+           <p><?php echo get_post_meta($post->ID, 'ol_description', 1); ?> </p>
+          </div>
+        </a>
+      </div>
+     </div>
+    </div>
+
+  <?php
+  }
+  }
+  else {
+  }
+  ?>
+  <?php wp_reset_postdata(); ?>
+  </section>
+</div>
+<!-- END OF BLOCK WITH LECTURES OF DESIGN SCHOOL -->
+
+
+
+
+
+
 <!-- BLOCK WITH COURSES OF BUSINESS SCHOOL -->
 <div class="col-xs-12 block_borders slide-styles">
 <section class="main">
   <div class="col-sm-6 col-md-4 col-xs-12 text_block"  >
     <h1>Школа Бизнеса. <br>Курсы. <br>Business School. <br>Courses</h1>
-    <p style="width: 83%">The world needs new acting talents and geniuses.
+ <!--    <p style="width: 83%">The world needs new acting talents and geniuses.
       Skillful, intensive, practical education and
       specialized events — it is exactly what
-      I coworking hub deals with to achieve the goal.</p>
+      I coworking hub deals with to achieve the goal.</p> -->
       <a href="/open-university/business-school/">Подробнее</a>
   </div>
 
@@ -191,7 +262,7 @@
       <div class="row item_border">
         <a href="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>"  class="item_link">                  
           <div class="thumbnail_item">
-            <img src="<?php bloginfo('template_url'); ?>/images/item_image.png" class="img-responsive" alt="">
+                <?php the_post_thumbnail('','class=img-responsive'); ?>
           </div>
           <div class="col-lg-10" style="margin-left: 10px;">
            <article > 
@@ -217,7 +288,74 @@
 <!-- END OF BLOCK WITH LECTURES OF BUSINESS SCHOOL -->
 
 
-<!--     <div class="col-xs-12 block_borders slide-styles" >
+
+<!-- BLOCK WITH SPECIAL PROJECTS -->
+<div class="col-xs-12 block_borders slide-styles" >
+<section class="main">
+  <div class="col-sm-6 col-md-4 col-xs-12  text_block"  >
+  <article> <h1>Спецпроекты.<br>Special projects.</h1></article>
+    <!-- <p style="width: 83%">The world needs new acting talents and geniuses.
+    Skillful, intensive, practical education and
+    specialized events — it is exactly what
+    I coworking hub deals with to achieve the goal.</p>
+     -->
+  </div>
+  
+
+
+  <?php
+
+    $course_programm_category = new WP_Query( $args );
+    $course_programm_category = new WP_Query( array(
+    'post_type' => 'open-talks',
+    'paged'=>  $paged,
+    'order' => ASC,
+    'posts_per_page' => -1,
+    'tax_query' => array(
+      array(
+      'taxonomy' => 'item_category',
+      'field'    => 'slug',
+      'terms'    => 'спецпроекты',
+      ),
+    ),
+   ) );
+  if( $course_programm_category->have_posts() ) {
+    while( $course_programm_category->have_posts() ) {
+      $course_programm_category->the_post();
+      ?>
+
+    <div class="col-lg-4 col-sm-6 col-md-4 col-xs-12  course_item" >
+     <div class="col-lg-11 col-lg-offset-right-1">
+      <div class="row item_border">
+        <a href="<?php echo get_post_meta($post->ID, 'ol_url', 1); ?>"  class="item_link">                  
+          <div class="thumbnail_item">
+               <?php the_post_thumbnail('','class=img-responsive'); ?>
+          </div>
+          <div class="col-lg-10" style="margin-left: 10px;">
+           <article > 
+              <h1><?php echo get_post_meta($post->ID, 'ol_title', 1); ?> </h1>
+              <h2><?php echo get_post_meta($post->ID, 'ol_price', 1); ?> </h2>
+           </article>
+           <p><?php echo get_post_meta($post->ID, 'ol_description', 1); ?> </p>
+          </div>
+        </a>
+      </div>
+     </div>
+    </div>
+
+  <?php
+  }
+  }
+  else {
+  }
+  ?>
+  <?php wp_reset_postdata(); ?>
+  </section>
+</div>
+<!-- END OF BLOCK WITH SPECIAL PROJECTS -->
+
+
+    <div class="col-xs-12 block_borders slide-styles" >
      
      
         <div class="col-lg-4 text_block"  >
@@ -289,7 +427,7 @@ COWORKING HUB дали мне возможность двигаться даль
 
 
 
-    </div> -->
+    </div>
 
 
 
