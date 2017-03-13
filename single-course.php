@@ -63,9 +63,9 @@
   
 </div>
   </div>
-<button type="button" class="btn btn-red">
+<a href="<?php echo get_post_meta($post->ID, 'course_brief_link', 1); ?>" type="button" class="btn btn-red">
   УЧИТЬСЯ
-</button>
+</a>
 <!-- END OF BLOCK WITH COURSE DESCRIPTION -->
 
 
@@ -154,9 +154,9 @@
   </div>
 
 </div>
-<button type="button" style="margin-top: 0px;" class=" btn btn-red" >
+<a href="<?php echo get_post_meta($post->ID, 'course_brief_link', 1); ?>" type="button" class="btn btn-red">
   УЧИТЬСЯ
-</button>
+</a>
 <!-- END BLOCK WITH COURSE TUTORS|MENTORS 2 -->
          
 
@@ -332,9 +332,9 @@ a.accordion-toggle, a.accordion-toggle:hover  {
 </div>
 </div>
 
-<button type="button" class="btn btn-red" >
+<a href="<?php echo get_post_meta($post->ID, 'course_brief_link', 1); ?>" type="button" class="btn btn-red">
   УЧИТЬСЯ
-</button>
+</a>
 <!-- END OF BLOCK WITH COURSE PRICES -->
 
 
@@ -368,7 +368,7 @@ a.accordion-toggle, a.accordion-toggle:hover  {
 <h1 style="margin-left: 0px; text-align: left;">Headhunting sponsor:</h1>
 <a href="#" class="feedback_link">I business incubator</a>
 <p style="font-size: 20px;">Если у вас есть вопросы до заполнения брифа или вы хотите, что бы с вами связался отдел продаж,
-пожалуйста, звоните</p>
+пожалуйста, звоните.</p>
           </div>
 
  <div class="col-xs-12 tutors_block"  style="margin-top: 60px;">

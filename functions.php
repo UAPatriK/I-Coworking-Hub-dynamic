@@ -1052,7 +1052,7 @@ function my_extra_fields_update_course( $post_id ){
 
 
 
-// Code for Furniture
+// Code for Course Programm
 
 function my_custom_post_course_programm() {
   $labels = array(
@@ -1201,6 +1201,108 @@ function my_extra_fields_update_course_programm( $post_id ){
 }
 
 
+
+// Code for Briefs
+
+function my_custom_post_brief() {
+  $labels = array(
+    'name'               => _x( 'Брифы', 'post type general name' ),
+    'singular_name'      => _x( 'Бриф', 'post type singular name' ),
+    'add_new'            => _x( 'Добавить новый бриф', 'book' ),
+    'add_new_item'       => __( 'Новый бриф' ),
+    'edit_item'          => __( 'Редактировать бриф' ),
+    'new_item'           => __( 'Новый бриф' ),
+    'all_items'          => __( 'Все брифы' ),
+    'view_item'          => __( 'Просмотреть брифа' ),
+    'search_items'       => __( 'Искать бриф' ),
+    'not_found'          => __( 'Брифы не найдены' ),
+    'not_found_in_trash' => __( 'В корзине брифы не найдены' ), 
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Брифы'
+  );
+  $args = array(
+    'labels'        => $labels,
+    'description'   => 'Тип записи для отображения информации о брифах',
+    'public'        => true,
+    'menu_position' => 5,
+    'supports'      => array( 'title'),
+    'has_archive'   => true,
+     'menu_icon' => 'dashicons-groups',
+  );
+  register_post_type( 'brief', $args ); 
+}
+add_action( 'init', 'my_custom_post_brief' );
+
+function my_updated_messages_brief( $messages ) {
+  global $post, $post_ID;
+  $messages['brief'] = array(
+    0 => '', 
+    1 => sprintf( __('Бриф обновлен. <a href="%s">Просмотреть бриф</a>'), esc_url( get_permalink($post_ID) ) ),
+    2 => __('Поле добавлено.'),
+    3 => __('Поле удалено.'),
+    4 => __('Бриф обновлен.'),
+    5 => isset($_GET['revision']) ? sprintf( __('Бриф обновлен от %s'), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+    6 => sprintf( __('Бриф опубликован. <a href="%s">View brief</a>'), esc_url( get_permalink($post_ID) ) ),
+    7 => __('Бриф сохранен.'),
+    8 => sprintf( __('Предпросмотр брифа <a target="_blank" href="%s">Preview brief</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+    9 => sprintf( __('Публикация брифа запланирована: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Предпросмотр брифа</a>'), date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post_ID) ) ),
+    10 => sprintf( __('Черновик брифа сохранен. <a target="_blank" href="%s">Предпросмотр брифа</a>'), esc_url( add_query_arg( 'preview', 'true', get_permalink($post_ID) ) ) ),
+  );
+  return $messages;
+}
+add_filter( 'post_updated_messages', 'my_updated_messages_brief' );
+
+
+// подключаем функцию активации мета блока (my_extra_fields)
+add_action('add_meta_boxes', 'my_extra_fields_brief', 1);
+
+function my_extra_fields_brief() {
+	add_meta_box( 'extra_fields', 'Дополнительные поля', 'extra_fields_box_func_brief', 'brief', 'normal', 'high'  );
+}
+
+// код блока
+function extra_fields_box_func_brief( $post ){
+?>
+
+<table width="100%" border="1" cellspacing="0" bordercolor="ececec" cellpadding="7">
+
+<tr><label>
+	<td>
+	Код гугл документа:
+	</td>
+	<td>
+
+		<textarea type="text" name="extra[brief_row_1]" value="<?php echo get_post_meta($post->ID, 'brief_row_1', 1); ?>" style="width:100%" /><?php echo get_post_meta($post->ID, 'brief_row_1', 1); ?></textarea>
+	</td></label>
+</tr>
+	</table>
+	<input type="hidden" name="extra_fields_nonce" value="<?php echo wp_create_nonce(__FILE__); ?>" />
+<?php
+}
+
+// включаем обновление полей при сохранении
+add_action('save_post', 'my_extra_fields_update_brief', 0);
+
+/* Сохраняем данные, при сохранении поста */
+function my_extra_fields_update_brief( $post_id ){
+	if ( !wp_verify_nonce($_POST['extra_fields_nonce'], __FILE__) ) return false; // проверка
+	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE  ) return false; // если это автосохранение
+	if ( !current_user_can('edit_post', $post_id) ) return false; // если юзер не имеет право редактировать запись
+
+	if( !isset($_POST['extra']) ) return false;	
+
+	// Все ОК! Теперь, нужно сохранить/удалить данные
+	$_POST['extra'] = array_map('trim', $_POST['extra']);
+	foreach( $_POST['extra'] as $key=>$value ){
+		if( empty($value) ){
+			delete_post_meta($post_id, $key); // удаляем поле если значение пустое
+			continue;
+		}
+
+		update_post_meta($post_id, $key, $value); // add_post_meta() работает автоматически
+	}
+	return $post_id;
+}
 
 
 

@@ -455,11 +455,6 @@ a.feedback_link:hover{
   text-align: left;
 }
 
-.course_sign {
-  font-size: 75px;
-    font-family:  Futura Futurisc Bold;
-    text-align: left;
-}
 
 .course_subsign {
   margin-top: 50px;
@@ -689,6 +684,14 @@ margin-right: 0px;
 
 }
 
+.course_sign {
+  font-size: 35px;
+    font-family:  Futura Futurisc Bold;
+    text-align: left;
+
+}
+
+
  }
 
 
@@ -720,6 +723,13 @@ margin-right: 0px;
 
 }
 
+.course_sign {
+  font-size: 75px;
+    font-family:  Futura Futurisc Bold;
+    text-align: left;
+}
+
+
  }
 
  
@@ -750,6 +760,13 @@ margin-right: 20px;
 
 }
 
+.course_sign {
+  font-size: 75px;
+    font-family:  Futura Futurisc Bold;
+    text-align: left;
+}
+
+
  }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -760,6 +777,13 @@ margin-right: 20px;
     /* position: relative; */
     bottom: 0px;
   }
+
+.course_sign {
+  font-size: 75px;
+    font-family:  Futura Futurisc Bold;
+    text-align: left;
+}
+
 
  .slide-styles {
 padding-top: 160px; padding-left:45px; padding-right: 45px;
@@ -972,3 +996,17 @@ a.item_link,
     margin-right: 0;
   }
 }
+
+
+
+ @font-face {
+    font-family: Garamond; /* Имя шрифта */
+    src: url(fonts/Garamond.TTF); /* Путь к файлу со шрифтом */ 
+   }
+
+   .background-color {
+      height: 100%;
+
+   background: url(images/404.jpg) no-repeat; /* Добавляем фон */
+    background-size: cover; /* Масштабируем фон */
+   }
